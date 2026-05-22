@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>[サービス名]</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    :root {
+      --dark:       #1C1C1C;
+      --navy:       #1a2744;
+      --navy-mid:   #2C3E6B;
+      --cream:      #F8F5F0;
+      --warm:       #E8E0D5;
+      --gold:       #B8965A;
+      --text:       #2C2C2C;
+      --text-muted: #888;
+      --white:      #FFFFFF;
+    }
+
+    body {
+      font-family: 'Noto Sans JP', sans-serif;
+      color: var(--text);
+      background: var(--cream);
+      line-height: 1.8;
+      max-width: 430px;
+      margin: 0 auto;
+      overflow-x: hidden;
+    }
+
+    /* ─── HEADER ─── */
+    header {
+      position: fixed;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      background: rgba(26, 26, 30, 0.96);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      z-index: 200;
+      padding: 14px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .header-logo {
+      color: var(--white);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      letter-spacing: 0.12em;
+    }
+    .header-cta {
+      background: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      padding: 8px 16px;
+      border-radius: 4px;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 45%, #111828 100%);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 100px 28px 60px;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 25% 65%, rgba(184,150,90,.18) 0%, transparent 55%);
+      pointer-events: none;
+    }
+    .hero-eyebrow {
+      color: var(--gold);
+      font-size: 10px;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      margin-bottom: 22px;
+    }
+    .hero h1 {
+      font-family: 'Noto Serif JP', serif;
+      color: var(--white);
+      font-size: 29px;
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0.06em;
+      margin-bottom: 18px;
+    }
+    .hero h1 em {
+      font-style: normal;
+      color: var(--gold);
+    }
+    .hero-sub {
+      color: rgba(255,255,255,.72);
+      font-size: 13px;
+      line-height: 2;
+      margin-bottom: 40px;
+      max-width: 310px;
+    }
+    .hero-btn-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+    }
+    .btn-primary {
+      display: block;
+      width: 100%;
+      max-width: 290px;
+      background: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      padding: 17px;
+      border-radius: 6px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+    .btn-outline {
+      display: block;
+      width: 100%;
+      max-width: 290px;
+      border: 1px solid rgba(255,255,255,.35);
+      color: rgba(255,255,255,.85);
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+    .hero-scroll {
+      position: absolute;
+      bottom: 26px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: rgba(255,255,255,.4);
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+    .hero-scroll::after {
+      content: '';
+      display: block;
+      width: 1px;
+      height: 32px;
+      background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+    }
+
+    /* ─── SECTION BASE ─── */
+    .sec { padding: 64px 24px; }
+    .sec-label {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.35em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .sec-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 22px;
+      font-weight: 700;
+      line-height: 1.55;
+      letter-spacing: 0.05em;
+      margin-bottom: 14px;
+    }
+    .sec-bar {
+      width: 36px;
+      height: 2px;
+      background: var(--gold);
+      margin: 18px 0;
+    }
+    .sec-lead {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+    .sec-title-white { color: var(--white); }
+    .sec-lead-white  { color: rgba(255,255,255,.65); }
+
+    /* ─── PROBLEMS ─── */
+    .sec-problems { background: var(--white); }
+    .problem-list {
+      margin-top: 30px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .problem-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+      padding: 14px 18px;
+      border-radius: 0 6px 6px 0;
+      font-size: 13px;
+      line-height: 1.7;
+    }
+    .problem-item::before {
+      content: '□';
+      color: var(--gold);
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    /* ─── FEATURES ─── */
+    .sec-features { background: var(--cream); }
+    .feature-cards {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+    .feature-card {
+      background: var(--white);
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 22px rgba(0,0,0,.06);
+    }
+    .feature-card-img {
+      width: 100%;
+      height: 155px;
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.25);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+    }
+    .feature-card-body { padding: 20px; }
+    .feature-num {
+      font-size: 9px;
+      color: var(--gold);
+      letter-spacing: 0.25em;
+      margin-bottom: 8px;
+    }
+    .feature-card-title {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 16px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      line-height: 1.5;
+    }
+    .feature-card-text {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 2;
+    }
+
+    /* ─── FLOW ─── */
+    .sec-flow {
+      background: var(--dark);
+    }
+    .flow-steps {
+      margin-top: 34px;
+      position: relative;
+    }
+    .flow-steps::before {
+      content: '';
+      position: absolute;
+      left: 17px;
+      top: 20px;
+      bottom: 20px;
+      width: 1px;
+      background: rgba(184,150,90,.25);
+    }
+    .flow-step {
+      display: flex;
+      gap: 20px;
+      align-items: flex-start;
+      margin-bottom: 30px;
+    }
+    .flow-step:last-child { margin-bottom: 0; }
+    .flow-num {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 13px;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      position: relative;
+      z-index: 1;
+    }
+    .flow-content {}
+    .flow-step-title {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--white);
+      margin-bottom: 5px;
+      line-height: 1.5;
+    }
+    .flow-step-text {
+      font-size: 12px;
+      color: rgba(255,255,255,.58);
+      line-height: 1.9;
+    }
+
+    /* ─── PRICE ─── */
+    .sec-price { background: var(--white); }
+    .price-cards {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .price-card {
+      border: 1px solid var(--warm);
+      border-radius: 12px;
+      padding: 24px 20px;
+      position: relative;
+    }
+    .price-card.rec {
+      border-color: var(--gold);
+      background: #fffcf6;
+    }
+    .rec-badge {
+      position: absolute;
+      top: -11px;
+      left: 18px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 10px;
+      padding: 3px 14px;
+      border-radius: 20px;
+      letter-spacing: 0.1em;
+    }
+    .price-plan-name {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+    .price-amount {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--dark);
+    }
+    .price-amount small { font-size: 13px; font-weight: 400; }
+    .price-note {
+      font-size: 12px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      line-height: 1.9;
+    }
+
+    /* ─── VOICE ─── */
+    .sec-voice { background: var(--cream); }
+    .voice-cards {
+      margin-top: 32px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .voice-card {
+      background: var(--white);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 2px 14px rgba(0,0,0,.05);
+    }
+    .voice-head {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .voice-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #ddd, #ccc);
+      flex-shrink: 0;
+    }
+    .voice-name { font-size: 13px; font-weight: 500; }
+    .voice-attr { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+    .voice-stars { color: var(--gold); font-size: 13px; margin-bottom: 8px; }
+    .voice-body { font-size: 12px; color: var(--text); line-height: 2; }
+
+    /* ─── FAQ ─── */
+    .sec-faq { background: var(--white); }
+    .faq-list {
+      margin-top: 32px;
+    }
+    .faq-item {
+      border-bottom: 1px solid var(--warm);
+    }
+    .faq-q {
+      padding: 18px 0;
+      font-size: 13px;
+      font-weight: 500;
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      cursor: pointer;
+    }
+    .faq-q-icon {
+      color: var(--gold);
+      font-family: 'Noto Serif JP', serif;
+      font-weight: 700;
+      font-size: 14px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .faq-q-text { flex: 1; line-height: 1.6; }
+    .faq-toggle {
+      color: var(--gold);
+      font-size: 18px;
+      flex-shrink: 0;
+      transition: transform .25s;
+      user-select: none;
+    }
+    .faq-a {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 2;
+      padding: 0 0 18px 26px;
+      display: none;
+    }
+    .faq-item.open .faq-a { display: block; }
+    .faq-item.open .faq-toggle { transform: rotate(45deg); }
+
+    /* ─── ACCESS ─── */
+    .sec-access { background: var(--dark); }
+    .access-map {
+      width: 100%;
+      height: 200px;
+      background: #2a2a2a;
+      border-radius: 10px;
+      margin: 26px 0 22px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,.25);
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      overflow: hidden;
+    }
+    .access-map iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      display: block;
+    }
+    .access-rows { display: flex; flex-direction: column; gap: 12px; }
+    .access-row {
+      display: flex;
+      gap: 14px;
+      font-size: 13px;
+      color: rgba(255,255,255,.78);
+      align-items: flex-start;
+    }
+    .access-label {
+      color: var(--gold);
+      flex-shrink: 0;
+      min-width: 60px;
+      font-size: 12px;
+    }
+
+    /* ─── FINAL CTA ─── */
+    .sec-cta {
+      background: linear-gradient(160deg, var(--navy) 0%, #111828 100%);
+      padding: 64px 24px 80px;
+      text-align: center;
+    }
+    .sec-cta .sec-bar { margin: 18px auto; }
+    .sec-cta .sec-lead-white { margin-bottom: 36px; }
+    .cta-btn-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+    }
+    .btn-gold {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      background: var(--gold);
+      color: var(--white);
+      text-decoration: none;
+      padding: 17px;
+      border-radius: 6px;
+      font-size: 14px;
+      letter-spacing: 0.1em;
+      font-weight: 500;
+    }
+    .btn-line {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      background: #06C755;
+      color: var(--white);
+      text-decoration: none;
+      padding: 17px;
+      border-radius: 6px;
+      font-size: 14px;
+      letter-spacing: 0.08em;
+      font-weight: 500;
+    }
+    .btn-ghost {
+      display: block;
+      width: 100%;
+      max-width: 300px;
+      border: 1px solid rgba(255,255,255,.3);
+      color: rgba(255,255,255,.78);
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 6px;
+      font-size: 13px;
+      letter-spacing: 0.08em;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #111;
+      padding: 32px 24px;
+      text-align: center;
+    }
+    .footer-logo {
+      color: var(--white);
+      font-family: 'Noto Serif JP', serif;
+      font-size: 15px;
+      letter-spacing: 0.18em;
+      margin-bottom: 18px;
+    }
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      margin-bottom: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a {
+      color: rgba(255,255,255,.45);
+      font-size: 10px;
+      text-decoration: none;
+    }
+    .footer-copy {
+      color: rgba(255,255,255,.25);
+      font-size: 10px;
+    }
+
+    /* ─── STICKY BOTTOM CTA ─── */
+    .sticky-cta {
+      position: fixed;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      max-width: 430px;
+      background: rgba(20,20,24,.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      padding: 10px 14px 14px;
+      z-index: 200;
+      display: flex;
+      gap: 8px;
+    }
+    .sticky-btn {
+      flex: 1;
+      padding: 13px;
+      border-radius: 6px;
+      text-align: center;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.06em;
+    }
+    .sticky-btn-gold { background: var(--gold); color: var(--white); }
+    .sticky-btn-line { background: #06C755; color: var(--white); }
+
+    /* ─── SPACER for sticky bar ─── */
+    .sticky-spacer { height: 56px; }
+  </style>
+</head>
+<body>
+
+  <!-- ▼ HEADER -->
+  <header>
+    <div class="header-logo">[サービス名]</div>
+    <a href="#booking" class="header-cta">予約する</a>
+  </header>
+
+
+  <!-- ▼ HERO -->
+  <section class="hero">
+    <span class="hero-eyebrow">[ キャッチフレーズ ]</span>
+    <h1>
+      [メインキャッチコピー<br>
+      1行目]<br>
+      <em>[アクセントテキスト]</em>
+    </h1>
+    <p class="hero-sub">
+      [サブコピー。サービスの価値を<br>
+      ひとことで伝えるリード文が<br>
+      ここに入ります。]
+    </p>
+    <div class="hero-btn-wrap">
+      <a href="#booking" class="btn-primary">▶ [ファーストCTAボタン]</a>
+      <a href="#flow" class="btn-outline">[セカンドCTA（流れを見る等）]</a>
+    </div>
+    <div class="hero-scroll">SCROLL</div>
+  </section>
+
+
+  <!-- ▼ PROBLEMS / こんなお悩みありませんか -->
+  <section class="sec sec-problems">
+    <span class="sec-label">Problem</span>
+    <h2 class="sec-title">[お悩みセクション<br>タイトル]</h2>
+    <div class="sec-bar"></div>
+    <p class="sec-lead">[このセクションのリード文。<br>ターゲットの悩みに共感する一文。]</p>
+    <div class="problem-list">
+      <div class="problem-item">[お悩み項目 1]</div>
+      <div class="problem-item">[お悩み項目 2]</div>
+      <div class="problem-item">[お悩み項目 3]</div>
+      <div class="problem-item">[お悩み項目 4]</div>
+      <div class="problem-item">[お悩み項目 5]</div>
+      <div class="problem-item">[お悩み項目 6]</div>
+    </div>
+  </section>
+
+
+  <!-- ▼ FEATURES / 特徴・選ばれる理由 -->
+  <section class="sec sec-features">
+    <span class="sec-label">Feature</span>
+    <h2 class="sec-title">[特徴セクション<br>タイトル]</h2>
+    <div class="sec-bar"></div>
+    <p class="sec-lead">[特徴セクションの<br>リード文が入ります。]</p>
+    <div class="feature-cards">
+
+      <div class="feature-card">
+        <div class="feature-card-img">[ 画像エリア ]</div>
+        <div class="feature-card-body">
+          <div class="feature-num">FEATURE 01</div>
+          <h3 class="feature-card-title">[特徴1タイトル]</h3>
+          <p class="feature-card-text">[特徴1の説明文。サービスの強みや独自性をここに記載します。2〜3行程度を想定。]</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card-img">[ 画像エリア ]</div>
+        <div class="feature-card-body">
+          <div class="feature-num">FEATURE 02</div>
+          <h3 class="feature-card-title">[特徴2タイトル]</h3>
+          <p class="feature-card-text">[特徴2の説明文。サービスの強みや独自性をここに記載します。2〜3行程度を想定。]</p>
+        </div>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-card-img">[ 画像エリア ]</div>
+        <div class="feature-card-body">
+          <div class="feature-num">FEATURE 03</div>
+          <h3 class="feature-card-title">[特徴3タイトル]</h3>
+          <p class="feature-card-text">[特徴3の説明文。サービスの強みや独自性をここに記載します。2〜3行程度を想定。]</p>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ▼ FLOW / 流れ -->
+  <section class="sec sec-flow" id="flow">
+    <span class="sec-label">Flow</span>
+    <h2 class="sec-title sec-title-white">[フローセクション<br>タイトル]</h2>
+    <div class="sec-bar"></div>
+    <p class="sec-lead sec-lead-white">[フローセクションの<br>リード文が入ります。]</p>
+    <div class="flow-steps">
+
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <div class="flow-step-title">[ステップ 1 タイトル]</div>
+          <div class="flow-step-text">[ステップ1の説明テキストが入ります。]</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <div class="flow-step-title">[ステップ 2 タイトル]</div>
+          <div class="flow-step-text">[ステップ2の説明テキストが入ります。]</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <div class="flow-step-title">[ステップ 3 タイトル]</div>
+          <div class="flow-step-text">[ステップ3の説明テキストが入ります。]</div>
+        </div>
+      </div>
+
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <div class="flow-step-title">[ステップ 4 タイトル]</div>
+          <div class="flow-step-text">[ステップ4の説明テキストが入ります。]</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ▼ PRICE / 料金 -->
+  <section class="sec sec-price">
+    <span class="sec-label">Price</span>
+    <h2 class="sec-title">[料金セクション<br>タイトル]</h2>
+    <div class="sec-bar"></div>
+    <p class="sec-lead">[料金に関する補足・注意文が<br>ここに入ります。]</p>
+    <div class="price-cards">
+
+      <div class="price-card">
+        <div class="price-plan-name">[プラン名 1]</div>
+        <div class="price-amount">¥[金額]<small> / [単位]</small></div>
+        <p class="price-note">[プラン1の内容・含まれるものを<br>箇条書きや説明文で記載。]</p>
+      </div>
+
+      <div class="price-card rec">
+        <div class="rec-badge">おすすめ</div>
+        <div class="price-plan-name">[プラン名 2]</div>
+        <div class="price-amount">¥[金額]<small> / [単位]</small></div>
+        <p class="price-note">[プラン2の内容・含まれるものを<br>箇条書きや説明文で記載。]</p>
+      </div>
+
+      <div class="price-card">
+        <div class="price-plan-name">[プラン名 3]</div>
+        <div class="price-amount">¥[金額]<small> / [単位]</small></div>
+        <p class="price-note">[プラン3の内容・含まれるものを<br>箇条書きや説明文で記載。]</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ▼ VOICE / お客様の声 -->
+  <section class="sec sec-voice">
+    <span class="sec-label">Voice</span>
+    <h2 class="sec-title">[お客様の声<br>タイトル]</h2>
+    <div class="sec-bar"></div>
+    <div class="voice-cards">
+
+      <div class="voice-card">
+        <div class="voice-head">
+          <div class="voice-avatar"></div>
+          <div>
+            <div class="voice-name">[お名前] さん</div>
+            <div class="voice-attr">[年代・職業・属性など]</div>
+          </div>
+        </div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-body">[お客様の声1。実際の体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-head">
+          <div class="voice-avatar"></div>
+          <div>
+            <div class="voice-name">[お名前] さん</div>
+            <div class="voice-attr">[年代・職業・属性など]</div>
+          </div>
+        </div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-body">[お客様の声2。実際の体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
+      </div>
+
+      <div class="voice-card">
+        <div class="voice-head">
+          <div class="voice-avatar"></div>
+          <div>
+            <div class="voice-name">[お名前] さん</div>
+            <div class="voice-attr">[年代・職業・属性など]</div>
+          </div>
+        </div>
+        <div class="voice-stars">★★★★★</div>
+        <p class="voice-body">[お客様の声3。実際の体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ▼ FAQ -->
+  <section class="sec sec-faq">
+    <span class="sec-label">FAQ</span>
+    <h2 class="sec-title">[よくある質問<br>タイトル]</h2>
+    <div class="sec-bar"></div>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">[質問1のテキスト]</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">[回答1のテキスト。詳しい説明が入ります。]</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">[質問2のテキスト]</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">[回答2のテキスト。詳しい説明が入ります。]</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">[質問3のテキスト]</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">[回答3のテキスト。詳しい説明が入ります。]</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">[質問4のテキスト]</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">[回答4のテキスト。詳しい説明が入ります。]</div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ▼ ACCESS / アクセス -->
+  <section class="sec sec-access">
+    <span class="sec-label">Access</span>
+    <h2 class="sec-title sec-title-white">[アクセス<br>タイトル]</h2>
+    <div class="sec-bar"></div>
+    <!-- Google マップ埋め込み: src="" に iframe URL を入れる -->
+    <div class="access-map">
+      [ Google Map 埋め込みエリア ]
+      <!-- <iframe src="https://www.google.com/maps/embed?pb=..."></iframe> -->
+    </div>
+    <div class="access-rows">
+      <div class="access-row">
+        <span class="access-label">住所</span>
+        <span>[住所テキスト]</span>
+      </div>
+      <div class="access-row">
+        <span class="access-label">アクセス</span>
+        <span>[最寄り駅・徒歩○分など]</span>
+      </div>
+      <div class="access-row">
+        <span class="access-label">営業時間</span>
+        <span>[営業時間]</span>
+      </div>
+      <div class="access-row">
+        <span class="access-label">定休日</span>
+        <span>[定休日]</span>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ▼ FINAL CTA / 予約 -->
+  <section class="sec-cta" id="booking">
+    <span class="sec-label">Booking</span>
+    <h2 class="sec-title sec-title-white">[CTAセクション<br>タイトル]</h2>
+    <div class="sec-bar"></div>
+    <p class="sec-lead sec-lead-white">[予約を促すリード文。<br>背中を押す一言が入ります。]</p>
+    <div class="cta-btn-wrap">
+      <a href="#" class="btn-gold">▶ [予約ボタン]</a>
+      <a href="#" class="btn-line">LINE で予約する</a>
+      <a href="#" class="btn-ghost">お電話でのお問い合わせ</a>
+    </div>
+  </section>
+
+
+  <!-- ▼ FOOTER -->
+  <footer>
+    <div class="footer-logo">[サービス名]</div>
+    <div class="footer-links">
+      <a href="#">プライバシーポリシー</a>
+      <a href="#">特定商取引法に基づく表記</a>
+      <a href="#">運営会社</a>
+    </div>
+    <div class="footer-copy">© 2025 [会社名]. All Rights Reserved.</div>
+  </footer>
+
+
+  <!-- ▼ STICKY BOTTOM CTA -->
+  <div class="sticky-cta">
+    <a href="#booking" class="sticky-btn sticky-btn-gold">[予約ボタン]</a>
+    <a href="#" class="sticky-btn sticky-btn-line">LINE 予約</a>
+  </div>
+  <div class="sticky-spacer"></div>
+
+
+  <!-- ▼ JavaScript: FAQ アコーディオン -->
+  <script>
+    document.querySelectorAll('.faq-q').forEach(q => {
+      q.addEventListener('click', () => {
+        const item = q.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+        document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+        if (!isOpen) item.classList.add('open');
+      });
+    });
+  </script>
+
+</body>
+</html>
