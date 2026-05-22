@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>[サービス名]</title>
+  <title>快眠鍼｜睡眠・眼精疲労・自律神経に特化した鍼施術</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@300;400;700&family=Noto+Sans+JP:wght@300;400;500&display=swap" rel="stylesheet">
@@ -54,7 +54,17 @@
       color: var(--white);
       font-family: 'Noto Serif JP', serif;
       font-size: 15px;
+      letter-spacing: 0.18em;
+      display: flex;
+      flex-direction: column;
+      line-height: 1.2;
+    }
+    .header-logo small {
+      font-size: 9px;
       letter-spacing: 0.12em;
+      color: rgba(255,255,255,.55);
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
     }
     .header-cta {
       background: var(--gold);
@@ -65,6 +75,7 @@
       font-size: 11px;
       letter-spacing: 0.08em;
       font-weight: 500;
+      white-space: nowrap;
     }
 
     /* ─── HERO ─── */
@@ -77,7 +88,7 @@
       justify-content: center;
       align-items: center;
       text-align: center;
-      padding: 100px 28px 60px;
+      padding: 110px 28px 70px;
       overflow: hidden;
     }
     .hero::before {
@@ -89,30 +100,46 @@
     }
     .hero-eyebrow {
       color: var(--gold);
-      font-size: 10px;
-      letter-spacing: 0.35em;
+      font-size: 9px;
+      letter-spacing: 0.4em;
       text-transform: uppercase;
-      margin-bottom: 22px;
+      margin-bottom: 24px;
     }
     .hero h1 {
       font-family: 'Noto Serif JP', serif;
       color: var(--white);
-      font-size: 29px;
+      font-size: 30px;
       font-weight: 700;
       line-height: 1.55;
       letter-spacing: 0.06em;
-      margin-bottom: 18px;
+      margin-bottom: 10px;
     }
     .hero h1 em {
       font-style: normal;
       color: var(--gold);
     }
-    .hero-sub {
-      color: rgba(255,255,255,.72);
+    .hero-tagline {
+      color: rgba(255,255,255,.85);
       font-size: 13px;
+      letter-spacing: 0.15em;
+      margin-bottom: 6px;
+    }
+    .hero-sub {
+      color: rgba(255,255,255,.62);
+      font-size: 12px;
       line-height: 2;
       margin-bottom: 40px;
-      max-width: 310px;
+      max-width: 300px;
+    }
+    .hero-price-badge {
+      background: rgba(184,150,90,.15);
+      border: 1px solid rgba(184,150,90,.4);
+      color: var(--gold);
+      font-size: 11px;
+      padding: 6px 18px;
+      border-radius: 20px;
+      letter-spacing: 0.1em;
+      margin-bottom: 22px;
     }
     .hero-btn-wrap {
       display: flex;
@@ -131,7 +158,7 @@
       padding: 17px;
       border-radius: 6px;
       font-size: 14px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       font-weight: 500;
     }
     .btn-outline {
@@ -139,11 +166,11 @@
       width: 100%;
       max-width: 290px;
       border: 1px solid rgba(255,255,255,.35);
-      color: rgba(255,255,255,.85);
+      color: rgba(255,255,255,.82);
       text-decoration: none;
       padding: 15px;
       border-radius: 6px;
-      font-size: 13px;
+      font-size: 12px;
       letter-spacing: 0.08em;
     }
     .hero-scroll {
@@ -151,7 +178,7 @@
       bottom: 26px;
       left: 50%;
       transform: translateX(-50%);
-      color: rgba(255,255,255,.4);
+      color: rgba(255,255,255,.38);
       font-size: 9px;
       letter-spacing: 0.25em;
       display: flex;
@@ -164,7 +191,7 @@
       display: block;
       width: 1px;
       height: 32px;
-      background: linear-gradient(to bottom, rgba(255,255,255,.4), transparent);
+      background: linear-gradient(to bottom, rgba(255,255,255,.38), transparent);
     }
 
     /* ─── SECTION BASE ─── */
@@ -225,56 +252,105 @@
       flex-shrink: 0;
       margin-top: 1px;
     }
+    .problem-note {
+      margin-top: 22px;
+      font-size: 13px;
+      color: var(--navy);
+      font-weight: 500;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
 
-    /* ─── FEATURES ─── */
-    .sec-features { background: var(--cream); }
-    .feature-cards {
+    /* ─── EFFECTS ─── */
+    .sec-effects { background: var(--cream); }
+    .effect-cards {
       margin-top: 32px;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      gap: 14px;
     }
-    .feature-card {
+    .effect-card {
       background: var(--white);
-      border-radius: 12px;
-      overflow: hidden;
-      box-shadow: 0 4px 22px rgba(0,0,0,.06);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 2px 16px rgba(0,0,0,.05);
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
     }
-    .feature-card-img {
-      width: 100%;
-      height: 155px;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    .effect-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--navy), var(--navy-mid));
       display: flex;
       align-items: center;
       justify-content: center;
-      color: rgba(255,255,255,.25);
-      font-size: 10px;
-      letter-spacing: 0.25em;
+      flex-shrink: 0;
+      font-size: 20px;
     }
-    .feature-card-body { padding: 20px; }
-    .feature-num {
-      font-size: 9px;
-      color: var(--gold);
-      letter-spacing: 0.25em;
-      margin-bottom: 8px;
+    .effect-body {}
+    .effect-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--dark);
+      margin-bottom: 5px;
+      line-height: 1.4;
     }
-    .feature-card-title {
-      font-family: 'Noto Serif JP', serif;
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-    .feature-card-text {
+    .effect-text {
       font-size: 12px;
       color: var(--text-muted);
-      line-height: 2;
+      line-height: 1.9;
+    }
+
+    /* ─── TSUBO / ツボ紹介 ─── */
+    .sec-tsubo { background: var(--dark); }
+    .tsubo-grid {
+      margin-top: 32px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    .tsubo-card {
+      background: rgba(255,255,255,.05);
+      border: 1px solid rgba(184,150,90,.2);
+      border-radius: 10px;
+      padding: 14px 12px;
+    }
+    .tsubo-name-ja {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--gold);
+      margin-bottom: 2px;
+      font-family: 'Noto Serif JP', serif;
+    }
+    .tsubo-name-yomi {
+      font-size: 10px;
+      color: rgba(255,255,255,.4);
+      margin-bottom: 8px;
+    }
+    .tsubo-effects {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+    .tsubo-effect-tag {
+      font-size: 10px;
+      color: rgba(255,255,255,.65);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      line-height: 1.4;
+    }
+    .tsubo-effect-tag::before {
+      content: '—';
+      color: var(--gold);
+      flex-shrink: 0;
+      font-size: 9px;
     }
 
     /* ─── FLOW ─── */
-    .sec-flow {
-      background: var(--dark);
-    }
+    .sec-flow { background: var(--navy); }
     .flow-steps {
       margin-top: 34px;
       position: relative;
@@ -310,13 +386,12 @@
       position: relative;
       z-index: 1;
     }
-    .flow-content {}
     .flow-step-title {
       font-size: 15px;
       font-weight: 600;
       color: var(--white);
       margin-bottom: 5px;
-      line-height: 1.5;
+      line-height: 1.4;
     }
     .flow-step-text {
       font-size: 12px;
@@ -326,50 +401,131 @@
 
     /* ─── PRICE ─── */
     .sec-price { background: var(--white); }
-    .price-cards {
+    .price-category {
       margin-top: 32px;
+    }
+    .price-category + .price-category { margin-top: 36px; }
+    .price-cat-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: var(--gold);
+      border-bottom: 1px solid var(--warm);
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+    .price-first {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      border-radius: 12px;
+      padding: 24px 22px;
+      text-align: center;
+      color: var(--white);
+    }
+    .price-first-label {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      color: rgba(255,255,255,.6);
+      margin-bottom: 10px;
+    }
+    .price-first-amount {
+      font-family: 'Noto Serif JP', serif;
+      font-size: 44px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .price-first-amount small { font-size: 16px; font-weight: 400; }
+    .price-first-note {
+      margin-top: 10px;
+      font-size: 12px;
+      color: rgba(255,255,255,.55);
+    }
+    .price-rows {
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 10px;
     }
-    .price-card {
-      border: 1px solid var(--warm);
-      border-radius: 12px;
-      padding: 24px 20px;
+    .price-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 16px;
+      background: var(--cream);
+      border-radius: 8px;
+      gap: 10px;
+    }
+    .price-row.rec {
+      background: #fffcf5;
+      border: 1px solid rgba(184,150,90,.35);
       position: relative;
     }
-    .price-card.rec {
-      border-color: var(--gold);
-      background: #fffcf6;
-    }
-    .rec-badge {
-      position: absolute;
-      top: -11px;
-      left: 18px;
-      background: var(--gold);
-      color: var(--white);
-      font-size: 10px;
-      padding: 3px 14px;
-      border-radius: 20px;
-      letter-spacing: 0.1em;
-    }
-    .price-plan-name {
+    .price-row-name {
       font-size: 13px;
-      color: var(--text-muted);
-      margin-bottom: 6px;
+      font-weight: 500;
+      color: var(--text);
+      flex: 1;
     }
-    .price-amount {
+    .price-row-sub {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+    .price-row-amount {
+      text-align: right;
+      flex-shrink: 0;
+    }
+    .price-row-total {
       font-family: 'Noto Serif JP', serif;
-      font-size: 30px;
+      font-size: 18px;
       font-weight: 700;
       color: var(--dark);
     }
-    .price-amount small { font-size: 13px; font-weight: 400; }
-    .price-note {
+    .price-row-unit {
+      font-size: 11px;
+      color: var(--text-muted);
+    }
+    .price-tag {
+      position: absolute;
+      top: -9px;
+      right: 14px;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 9px;
+      padding: 2px 10px;
+      border-radius: 10px;
+      letter-spacing: 0.1em;
+    }
+    .price-note-box {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin-top: 10px;
       font-size: 12px;
       color: var(--text-muted);
-      margin-top: 10px;
       line-height: 1.9;
+    }
+    .price-option-box {
+      background: var(--cream);
+      border-radius: 8px;
+      padding: 16px;
+      margin-top: 10px;
+    }
+    .price-option-title {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .price-option-amount {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 6px;
+    }
+    .price-option-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.8;
     }
 
     /* ─── VOICE ─── */
@@ -406,12 +562,8 @@
 
     /* ─── FAQ ─── */
     .sec-faq { background: var(--white); }
-    .faq-list {
-      margin-top: 32px;
-    }
-    .faq-item {
-      border-bottom: 1px solid var(--warm);
-    }
+    .faq-list { margin-top: 32px; }
+    .faq-item { border-bottom: 1px solid var(--warm); }
     .faq-q {
       padding: 18px 0;
       font-size: 13px;
@@ -432,10 +584,12 @@
     .faq-q-text { flex: 1; line-height: 1.6; }
     .faq-toggle {
       color: var(--gold);
-      font-size: 18px;
+      font-size: 20px;
       flex-shrink: 0;
       transition: transform .25s;
       user-select: none;
+      line-height: 1;
+      margin-top: 2px;
     }
     .faq-a {
       font-size: 12px;
@@ -463,12 +617,7 @@
       letter-spacing: 0.2em;
       overflow: hidden;
     }
-    .access-map iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-      display: block;
-    }
+    .access-map iframe { width: 100%; height: 100%; border: none; display: block; }
     .access-rows { display: flex; flex-direction: column; gap: 12px; }
     .access-row {
       display: flex;
@@ -508,7 +657,7 @@
       padding: 17px;
       border-radius: 6px;
       font-size: 14px;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       font-weight: 500;
     }
     .btn-line {
@@ -534,7 +683,7 @@
       padding: 15px;
       border-radius: 6px;
       font-size: 13px;
-      letter-spacing: 0.08em;
+      letter-spacing: 0.05em;
     }
 
     /* ─── FOOTER ─── */
@@ -562,10 +711,7 @@
       font-size: 10px;
       text-decoration: none;
     }
-    .footer-copy {
-      color: rgba(255,255,255,.25);
-      font-size: 10px;
-    }
+    .footer-copy { color: rgba(255,255,255,.25); font-size: 10px; }
 
     /* ─── STICKY BOTTOM CTA ─── */
     .sticky-cta {
@@ -595,8 +741,6 @@
     }
     .sticky-btn-gold { background: var(--gold); color: var(--white); }
     .sticky-btn-line { background: #06C755; color: var(--white); }
-
-    /* ─── SPACER for sticky bar ─── */
     .sticky-spacer { height: 56px; }
   </style>
 </head>
@@ -604,81 +748,98 @@
 
   <!-- ▼ HEADER -->
   <header>
-    <div class="header-logo">[サービス名]</div>
-    <a href="#booking" class="header-cta">予約する</a>
+    <div class="header-logo">
+      快眠鍼
+      <small>SLEEP ACUPUNCTURE</small>
+    </div>
+    <a href="#booking" class="header-cta">初回 2,980円</a>
   </header>
 
 
   <!-- ▼ HERO -->
   <section class="hero">
-    <span class="hero-eyebrow">[ キャッチフレーズ ]</span>
+    <span class="hero-eyebrow">Sleep Acupuncture</span>
     <h1>
-      [メインキャッチコピー<br>
-      1行目]<br>
-      <em>[アクセントテキスト]</em>
+      目覚めた瞬間の<br>
+      <em>頭の軽さ</em>を、<br>
+      体感してください。
     </h1>
+    <p class="hero-tagline">快眠鍼　KAIMIN HARI</p>
     <p class="hero-sub">
-      [サブコピー。サービスの価値を<br>
-      ひとことで伝えるリード文が<br>
-      ここに入ります。]
+      睡眠・眼精疲労・自律神経に特化した<br>
+      鍼施術で、眠れない夜に<br>
+      さようならを。
     </p>
+    <div class="hero-price-badge">初回体験 2,980円 ／ 60分</div>
     <div class="hero-btn-wrap">
-      <a href="#booking" class="btn-primary">▶ [ファーストCTAボタン]</a>
-      <a href="#flow" class="btn-outline">[セカンドCTA（流れを見る等）]</a>
+      <a href="#booking" class="btn-primary">▶ まずは初回体験を予約する</a>
+      <a href="#flow" class="btn-outline">施術の流れを見る</a>
     </div>
     <div class="hero-scroll">SCROLL</div>
   </section>
 
 
-  <!-- ▼ PROBLEMS / こんなお悩みありませんか -->
+  <!-- ▼ PROBLEMS -->
   <section class="sec sec-problems">
     <span class="sec-label">Problem</span>
-    <h2 class="sec-title">[お悩みセクション<br>タイトル]</h2>
+    <h2 class="sec-title">こんなお悩み<br>ありませんか？</h2>
     <div class="sec-bar"></div>
-    <p class="sec-lead">[このセクションのリード文。<br>ターゲットの悩みに共感する一文。]</p>
+    <p class="sec-lead">
+      忙しく働く毎日の中で、<br>
+      こんな不調を感じていませんか。
+    </p>
     <div class="problem-list">
-      <div class="problem-item">[お悩み項目 1]</div>
-      <div class="problem-item">[お悩み項目 2]</div>
-      <div class="problem-item">[お悩み項目 3]</div>
-      <div class="problem-item">[お悩み項目 4]</div>
-      <div class="problem-item">[お悩み項目 5]</div>
-      <div class="problem-item">[お悩み項目 6]</div>
+      <div class="problem-item">眠りが浅い／途中で目が覚める／寝つきが悪い</div>
+      <div class="problem-item">眼精疲労（スマホ・PC疲れ）や頭の重だるさが気になる</div>
+      <div class="problem-item">頭痛・首こりが気になる</div>
+      <div class="problem-item">ストレス・緊張が抜けず、リラックスしづらい</div>
+      <div class="problem-item">自律神経の乱れ（疲れやすい、緊張しやすい等）が気になる</div>
     </div>
+    <p class="problem-note">そのお悩み、快眠鍼で整えましょう。</p>
   </section>
 
 
-  <!-- ▼ FEATURES / 特徴・選ばれる理由 -->
-  <section class="sec sec-features">
-    <span class="sec-label">Feature</span>
-    <h2 class="sec-title">[特徴セクション<br>タイトル]</h2>
+  <!-- ▼ EFFECTS / 期待できる効果 -->
+  <section class="sec sec-effects">
+    <span class="sec-label">Effects</span>
+    <h2 class="sec-title">快眠鍼で<br>期待できる効果</h2>
     <div class="sec-bar"></div>
-    <p class="sec-lead">[特徴セクションの<br>リード文が入ります。]</p>
-    <div class="feature-cards">
+    <p class="sec-lead">
+      頭部の専門的なツボへのアプローチで、<br>
+      睡眠・眼精疲労・自律神経を<br>
+      内側から整えます。
+    </p>
+    <div class="effect-cards">
 
-      <div class="feature-card">
-        <div class="feature-card-img">[ 画像エリア ]</div>
-        <div class="feature-card-body">
-          <div class="feature-num">FEATURE 01</div>
-          <h3 class="feature-card-title">[特徴1タイトル]</h3>
-          <p class="feature-card-text">[特徴1の説明文。サービスの強みや独自性をここに記載します。2〜3行程度を想定。]</p>
+      <div class="effect-card">
+        <div class="effect-icon">🌙</div>
+        <div class="effect-body">
+          <div class="effect-title">睡眠の質向上</div>
+          <div class="effect-text">寝つきの改善、眠りの深さ向上、途中覚醒の減少。朝のスッキリ感アップをサポートします。</div>
         </div>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-card-img">[ 画像エリア ]</div>
-        <div class="feature-card-body">
-          <div class="feature-num">FEATURE 02</div>
-          <h3 class="feature-card-title">[特徴2タイトル]</h3>
-          <p class="feature-card-text">[特徴2の説明文。サービスの強みや独自性をここに記載します。2〜3行程度を想定。]</p>
+      <div class="effect-card">
+        <div class="effect-icon">👁️</div>
+        <div class="effect-body">
+          <div class="effect-title">眼精疲労の軽減</div>
+          <div class="effect-text">目の疲れ・重さ・かすみ・充血などのつらさを軽減。ピント調整機能の回復もサポートします。</div>
         </div>
       </div>
 
-      <div class="feature-card">
-        <div class="feature-card-img">[ 画像エリア ]</div>
-        <div class="feature-card-body">
-          <div class="feature-num">FEATURE 03</div>
-          <h3 class="feature-card-title">[特徴3タイトル]</h3>
-          <p class="feature-card-text">[特徴3の説明文。サービスの強みや独自性をここに記載します。2〜3行程度を想定。]</p>
+      <div class="effect-card">
+        <div class="effect-icon">🧘</div>
+        <div class="effect-body">
+          <div class="effect-title">自律神経を整える</div>
+          <div class="effect-text">交感神経の過緊張を緩和し、副交感神経を優位に。ストレス・緊張からリラックス状態へ。</div>
+        </div>
+      </div>
+
+      <div class="effect-card">
+        <div class="effect-icon">💆</div>
+        <div class="effect-body">
+          <div class="effect-title">頭部・首肩の不調緩和</div>
+          <div class="effect-text">頭重感・頭痛・首こり・肩こりの原因へアプローチ。顎まわりの食いしばりによる緊張緩和もサポートします。</div>
         </div>
       </div>
 
@@ -686,43 +847,140 @@
   </section>
 
 
-  <!-- ▼ FLOW / 流れ -->
+  <!-- ▼ TSUBO / ツボ紹介 -->
+  <section class="sec sec-tsubo">
+    <span class="sec-label">Acupuncture Points</span>
+    <h2 class="sec-title sec-title-white">快眠鍼　ツボ<br>〜効能・効果〜</h2>
+    <div class="sec-bar"></div>
+    <p class="sec-lead sec-lead-white">
+      頭部の8つのツボに、<br>
+      的確にアプローチします。
+    </p>
+    <div class="tsubo-grid">
+
+      <div class="tsubo-card">
+        <div class="tsubo-name-ja">頭臨泣</div>
+        <div class="tsubo-name-yomi">あたまりんきゅう</div>
+        <div class="tsubo-effects">
+          <div class="tsubo-effect-tag">不眠</div>
+          <div class="tsubo-effect-tag">感情の安定</div>
+          <div class="tsubo-effect-tag">目のうるおい</div>
+        </div>
+      </div>
+
+      <div class="tsubo-card">
+        <div class="tsubo-name-ja">率谷</div>
+        <div class="tsubo-name-yomi">そっこく</div>
+        <div class="tsubo-effects">
+          <div class="tsubo-effect-tag">ストレス解消</div>
+          <div class="tsubo-effect-tag">血行促進</div>
+          <div class="tsubo-effect-tag">頭のむくみ解消</div>
+        </div>
+      </div>
+
+      <div class="tsubo-card">
+        <div class="tsubo-name-ja">陽白</div>
+        <div class="tsubo-name-yomi">ようはく</div>
+        <div class="tsubo-effects">
+          <div class="tsubo-effect-tag">顔の緊張緩和</div>
+          <div class="tsubo-effect-tag">まぶたけいれん改善</div>
+        </div>
+      </div>
+
+      <div class="tsubo-card">
+        <div class="tsubo-name-ja">攅竹</div>
+        <div class="tsubo-name-yomi">さんちく</div>
+        <div class="tsubo-effects">
+          <div class="tsubo-effect-tag">目の重さ軽減</div>
+          <div class="tsubo-effect-tag">疲れ目・充血</div>
+          <div class="tsubo-effect-tag">かすみ目</div>
+        </div>
+      </div>
+
+      <div class="tsubo-card">
+        <div class="tsubo-name-ja">百会</div>
+        <div class="tsubo-name-yomi">ひゃくえ</div>
+        <div class="tsubo-effects">
+          <div class="tsubo-effect-tag">万能ツボ</div>
+          <div class="tsubo-effect-tag">血行促進</div>
+          <div class="tsubo-effect-tag">肩凝り・頭痛</div>
+        </div>
+      </div>
+
+      <div class="tsubo-card">
+        <div class="tsubo-name-ja">通天</div>
+        <div class="tsubo-name-yomi">つうてん</div>
+        <div class="tsubo-effects">
+          <div class="tsubo-effect-tag">頭重感緩和</div>
+          <div class="tsubo-effect-tag">首こり・肩こり</div>
+          <div class="tsubo-effect-tag">睡眠の質アップ</div>
+        </div>
+      </div>
+
+      <div class="tsubo-card">
+        <div class="tsubo-name-ja">太陽</div>
+        <div class="tsubo-name-yomi">たいよう</div>
+        <div class="tsubo-effects">
+          <div class="tsubo-effect-tag">肩こりからくる頭痛</div>
+          <div class="tsubo-effect-tag">目の疲れ</div>
+          <div class="tsubo-effect-tag">リラックス効果</div>
+        </div>
+      </div>
+
+      <div class="tsubo-card">
+        <div class="tsubo-name-ja">下関</div>
+        <div class="tsubo-name-yomi">げかん</div>
+        <div class="tsubo-effects">
+          <div class="tsubo-effect-tag">顎の緊張緩和</div>
+          <div class="tsubo-effect-tag">食いしばり</div>
+          <div class="tsubo-effect-tag">ストレス緩和</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ▼ FLOW / 施術の流れ -->
   <section class="sec sec-flow" id="flow">
     <span class="sec-label">Flow</span>
-    <h2 class="sec-title sec-title-white">[フローセクション<br>タイトル]</h2>
+    <h2 class="sec-title sec-title-white">施術の流れ</h2>
     <div class="sec-bar"></div>
-    <p class="sec-lead sec-lead-white">[フローセクションの<br>リード文が入ります。]</p>
+    <p class="sec-lead sec-lead-white">
+      はじめての方も安心してお越しください。<br>
+      丁寧なカウンセリングからスタートします。
+    </p>
     <div class="flow-steps">
 
       <div class="flow-step">
         <div class="flow-num">1</div>
-        <div class="flow-content">
-          <div class="flow-step-title">[ステップ 1 タイトル]</div>
-          <div class="flow-step-text">[ステップ1の説明テキストが入ります。]</div>
+        <div>
+          <div class="flow-step-title">ご予約</div>
+          <div class="flow-step-text">オンラインまたはLINEからご予約ください。初回のご予約もかんたんです。</div>
         </div>
       </div>
 
       <div class="flow-step">
         <div class="flow-num">2</div>
-        <div class="flow-content">
-          <div class="flow-step-title">[ステップ 2 タイトル]</div>
-          <div class="flow-step-text">[ステップ2の説明テキストが入ります。]</div>
+        <div>
+          <div class="flow-step-title">カウンセリング</div>
+          <div class="flow-step-text">お悩みやお体の状態を丁寧にお伺いします。はじめての方もご安心ください。</div>
         </div>
       </div>
 
       <div class="flow-step">
         <div class="flow-num">3</div>
-        <div class="flow-content">
-          <div class="flow-step-title">[ステップ 3 タイトル]</div>
-          <div class="flow-step-text">[ステップ3の説明テキストが入ります。]</div>
+        <div>
+          <div class="flow-step-title">施術（60分）</div>
+          <div class="flow-step-text">頭部・顔まわりの専門ツボに的確にアプローチ。リラックスしながらお受けいただけます。</div>
         </div>
       </div>
 
       <div class="flow-step">
         <div class="flow-num">4</div>
-        <div class="flow-content">
-          <div class="flow-step-title">[ステップ 4 タイトル]</div>
-          <div class="flow-step-text">[ステップ4の説明テキストが入ります。]</div>
+        <div>
+          <div class="flow-step-title">アフターカウンセリング</div>
+          <div class="flow-step-text">施術後の状態を確認し、セルフケアのアドバイスをお伝えします。次回のプランもご相談可能です。</div>
         </div>
       </div>
 
@@ -731,40 +989,141 @@
 
 
   <!-- ▼ PRICE / 料金 -->
-  <section class="sec sec-price">
+  <section class="sec sec-price" id="price">
     <span class="sec-label">Price</span>
-    <h2 class="sec-title">[料金セクション<br>タイトル]</h2>
+    <h2 class="sec-title">料金プラン</h2>
     <div class="sec-bar"></div>
-    <p class="sec-lead">[料金に関する補足・注意文が<br>ここに入ります。]</p>
-    <div class="price-cards">
+    <p class="sec-lead">すべて60分の予約枠です。<br>はじめての方はお得な初回料金からどうぞ。</p>
 
-      <div class="price-card">
-        <div class="price-plan-name">[プラン名 1]</div>
-        <div class="price-amount">¥[金額]<small> / [単位]</small></div>
-        <p class="price-note">[プラン1の内容・含まれるものを<br>箇条書きや説明文で記載。]</p>
+    <!-- 初回 -->
+    <div class="price-category">
+      <div class="price-cat-label">初回体験</div>
+      <div class="price-first">
+        <div class="price-first-label">FIRST VISIT</div>
+        <div class="price-first-amount"><small>¥</small>2,980</div>
+        <div class="price-first-note">60分 ／ 初回限定</div>
       </div>
-
-      <div class="price-card rec">
-        <div class="rec-badge">おすすめ</div>
-        <div class="price-plan-name">[プラン名 2]</div>
-        <div class="price-amount">¥[金額]<small> / [単位]</small></div>
-        <p class="price-note">[プラン2の内容・含まれるものを<br>箇条書きや説明文で記載。]</p>
-      </div>
-
-      <div class="price-card">
-        <div class="price-plan-name">[プラン名 3]</div>
-        <div class="price-amount">¥[金額]<small> / [単位]</small></div>
-        <p class="price-note">[プラン3の内容・含まれるものを<br>箇条書きや説明文で記載。]</p>
-      </div>
-
     </div>
+
+    <!-- 定額プラン -->
+    <div class="price-category">
+      <div class="price-cat-label">安心の定額プラン（月額）</div>
+      <div class="price-rows">
+        <div class="price-row">
+          <div>
+            <div class="price-row-name">月2回コース</div>
+            <div class="price-row-sub">1回 3,980円</div>
+          </div>
+          <div class="price-row-amount">
+            <div class="price-row-total">¥7,960</div>
+            <div class="price-row-unit">/ 月</div>
+          </div>
+        </div>
+        <div class="price-row rec">
+          <div class="price-tag">おすすめ</div>
+          <div>
+            <div class="price-row-name">月3回コース</div>
+            <div class="price-row-sub">1回 3,980円</div>
+          </div>
+          <div class="price-row-amount">
+            <div class="price-row-total">¥11,940</div>
+            <div class="price-row-unit">/ 月</div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div>
+            <div class="price-row-name">月4回コース</div>
+            <div class="price-row-sub">1回 3,980円</div>
+          </div>
+          <div class="price-row-amount">
+            <div class="price-row-total">¥15,920</div>
+            <div class="price-row-unit">/ 月</div>
+          </div>
+        </div>
+      </div>
+      <div class="price-note-box">
+        解約・変更もいつでも丁寧にサポートいたします。初回のお客様も安心してご利用ください。
+      </div>
+    </div>
+
+    <!-- ゲスト -->
+    <div class="price-category">
+      <div class="price-cat-label">ゲストプラン（都度払い）</div>
+      <div class="price-rows">
+        <div class="price-row">
+          <div>
+            <div class="price-row-name">ゲスト</div>
+            <div class="price-row-sub">60分</div>
+          </div>
+          <div class="price-row-amount">
+            <div class="price-row-total">¥5,000</div>
+            <div class="price-row-unit">/ 回</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 回数券 -->
+    <div class="price-category">
+      <div class="price-cat-label">回数券</div>
+      <div class="price-rows">
+        <div class="price-row">
+          <div>
+            <div class="price-row-name">1回券</div>
+            <div class="price-row-sub">都度払い</div>
+          </div>
+          <div class="price-row-amount">
+            <div class="price-row-total">¥5,000</div>
+            <div class="price-row-unit">/ 枚</div>
+          </div>
+        </div>
+        <div class="price-row">
+          <div>
+            <div class="price-row-name">3回券</div>
+            <div class="price-row-sub">1回 4,800円</div>
+          </div>
+          <div class="price-row-amount">
+            <div class="price-row-total">¥14,400</div>
+            <div class="price-row-unit">合計</div>
+          </div>
+        </div>
+        <div class="price-row rec">
+          <div class="price-tag">お得</div>
+          <div>
+            <div class="price-row-name">5回券</div>
+            <div class="price-row-sub">1回 4,500円</div>
+          </div>
+          <div class="price-row-amount">
+            <div class="price-row-total">¥22,500</div>
+            <div class="price-row-unit">合計</div>
+          </div>
+        </div>
+      </div>
+      <div class="price-note-box">
+        ご自身のペースで通いたい方に。まとめ購入でお得にご利用いただけます。
+      </div>
+    </div>
+
+    <!-- Option -->
+    <div class="price-category">
+      <div class="price-cat-label">Option</div>
+      <div class="price-option-box">
+        <div class="price-option-title">本数追加オプション</div>
+        <div class="price-option-amount">＋¥1,000 / 10本ごと</div>
+        <div class="price-option-note">
+          むくみ・フェイスライン・頭皮など、気になる部分だけ集中して<br>
+          効果を引き上げたい方におすすめです。
+        </div>
+      </div>
+    </div>
+
   </section>
 
 
   <!-- ▼ VOICE / お客様の声 -->
   <section class="sec sec-voice">
     <span class="sec-label">Voice</span>
-    <h2 class="sec-title">[お客様の声<br>タイトル]</h2>
+    <h2 class="sec-title">お客様の声</h2>
     <div class="sec-bar"></div>
     <div class="voice-cards">
 
@@ -773,11 +1132,11 @@
           <div class="voice-avatar"></div>
           <div>
             <div class="voice-name">[お名前] さん</div>
-            <div class="voice-attr">[年代・職業・属性など]</div>
+            <div class="voice-attr">[年代・性別・職業など]</div>
           </div>
         </div>
         <div class="voice-stars">★★★★★</div>
-        <p class="voice-body">[お客様の声1。実際の体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
+        <p class="voice-body">[お客様の声テキスト。体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
       </div>
 
       <div class="voice-card">
@@ -785,11 +1144,11 @@
           <div class="voice-avatar"></div>
           <div>
             <div class="voice-name">[お名前] さん</div>
-            <div class="voice-attr">[年代・職業・属性など]</div>
+            <div class="voice-attr">[年代・性別・職業など]</div>
           </div>
         </div>
         <div class="voice-stars">★★★★★</div>
-        <p class="voice-body">[お客様の声2。実際の体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
+        <p class="voice-body">[お客様の声テキスト。体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
       </div>
 
       <div class="voice-card">
@@ -797,11 +1156,11 @@
           <div class="voice-avatar"></div>
           <div>
             <div class="voice-name">[お名前] さん</div>
-            <div class="voice-attr">[年代・職業・属性など]</div>
+            <div class="voice-attr">[年代・性別・職業など]</div>
           </div>
         </div>
         <div class="voice-stars">★★★★★</div>
-        <p class="voice-body">[お客様の声3。実際の体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
+        <p class="voice-body">[お客様の声テキスト。体験談・ビフォーアフターなど具体的なエピソードが入ります。]</p>
       </div>
 
     </div>
@@ -811,59 +1170,67 @@
   <!-- ▼ FAQ -->
   <section class="sec sec-faq">
     <span class="sec-label">FAQ</span>
-    <h2 class="sec-title">[よくある質問<br>タイトル]</h2>
+    <h2 class="sec-title">よくある質問</h2>
     <div class="sec-bar"></div>
     <div class="faq-list">
 
       <div class="faq-item">
         <div class="faq-q">
           <span class="faq-q-icon">Q</span>
-          <span class="faq-q-text">[質問1のテキスト]</span>
+          <span class="faq-q-text">鍼は痛いですか？</span>
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a">[回答1のテキスト。詳しい説明が入ります。]</div>
+        <div class="faq-a">[回答テキスト]</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">
           <span class="faq-q-icon">Q</span>
-          <span class="faq-q-text">[質問2のテキスト]</span>
+          <span class="faq-q-text">初めてでも大丈夫ですか？</span>
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a">[回答2のテキスト。詳しい説明が入ります。]</div>
+        <div class="faq-a">[回答テキスト]</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">
           <span class="faq-q-icon">Q</span>
-          <span class="faq-q-text">[質問3のテキスト]</span>
+          <span class="faq-q-text">何回通えば効果が出ますか？</span>
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a">[回答3のテキスト。詳しい説明が入ります。]</div>
+        <div class="faq-a">[回答テキスト]</div>
       </div>
 
       <div class="faq-item">
         <div class="faq-q">
           <span class="faq-q-icon">Q</span>
-          <span class="faq-q-text">[質問4のテキスト]</span>
+          <span class="faq-q-text">定額プランはいつでも解約できますか？</span>
           <span class="faq-toggle">+</span>
         </div>
-        <div class="faq-a">[回答4のテキスト。詳しい説明が入ります。]</div>
+        <div class="faq-a">[回答テキスト]</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">
+          <span class="faq-q-icon">Q</span>
+          <span class="faq-q-text">どんな服装で来ればいいですか？</span>
+          <span class="faq-toggle">+</span>
+        </div>
+        <div class="faq-a">[回答テキスト]</div>
       </div>
 
     </div>
   </section>
 
 
-  <!-- ▼ ACCESS / アクセス -->
+  <!-- ▼ ACCESS -->
   <section class="sec sec-access">
     <span class="sec-label">Access</span>
-    <h2 class="sec-title sec-title-white">[アクセス<br>タイトル]</h2>
+    <h2 class="sec-title sec-title-white">アクセス</h2>
     <div class="sec-bar"></div>
-    <!-- Google マップ埋め込み: src="" に iframe URL を入れる -->
+    <!-- src="" に Google マップの埋め込みURLを入れる -->
     <div class="access-map">
       [ Google Map 埋め込みエリア ]
-      <!-- <iframe src="https://www.google.com/maps/embed?pb=..."></iframe> -->
     </div>
     <div class="access-rows">
       <div class="access-row">
@@ -886,23 +1253,27 @@
   </section>
 
 
-  <!-- ▼ FINAL CTA / 予約 -->
+  <!-- ▼ FINAL CTA -->
   <section class="sec-cta" id="booking">
     <span class="sec-label">Booking</span>
-    <h2 class="sec-title sec-title-white">[CTAセクション<br>タイトル]</h2>
+    <h2 class="sec-title sec-title-white">まずは<br>初回体験からどうぞ</h2>
     <div class="sec-bar"></div>
-    <p class="sec-lead sec-lead-white">[予約を促すリード文。<br>背中を押す一言が入ります。]</p>
+    <p class="sec-lead-white" style="font-size:13px;line-height:2;margin-bottom:36px;">
+      初回 2,980円（60分）で、<br>
+      快眠鍼の効果を体感してください。<br>
+      お気軽にご予約ください。
+    </p>
     <div class="cta-btn-wrap">
-      <a href="#" class="btn-gold">▶ [予約ボタン]</a>
+      <a href="#" class="btn-gold">▶ オンラインで予約する</a>
       <a href="#" class="btn-line">LINE で予約する</a>
-      <a href="#" class="btn-ghost">お電話でのお問い合わせ</a>
+      <a href="#" class="btn-ghost">📞 お電話でのお問い合わせ</a>
     </div>
   </section>
 
 
   <!-- ▼ FOOTER -->
   <footer>
-    <div class="footer-logo">[サービス名]</div>
+    <div class="footer-logo">快眠鍼</div>
     <div class="footer-links">
       <a href="#">プライバシーポリシー</a>
       <a href="#">特定商取引法に基づく表記</a>
@@ -914,13 +1285,13 @@
 
   <!-- ▼ STICKY BOTTOM CTA -->
   <div class="sticky-cta">
-    <a href="#booking" class="sticky-btn sticky-btn-gold">[予約ボタン]</a>
+    <a href="#booking" class="sticky-btn sticky-btn-gold">初回 2,980円 予約</a>
     <a href="#" class="sticky-btn sticky-btn-line">LINE 予約</a>
   </div>
   <div class="sticky-spacer"></div>
 
 
-  <!-- ▼ JavaScript: FAQ アコーディオン -->
+  <!-- ▼ FAQ アコーディオン -->
   <script>
     document.querySelectorAll('.faq-q').forEach(q => {
       q.addEventListener('click', () => {
