@@ -82,7 +82,15 @@
     .hero {
       position: relative;
       min-height: 100svh;
-      background: linear-gradient(160deg, var(--navy) 0%, var(--navy-mid) 45%, #111828 100%);
+      background:
+        linear-gradient(
+          180deg,
+          rgba(8,14,32,.88)  0%,
+          rgba(10,18,42,.62) 30%,
+          rgba(8,14,32,.72)  65%,
+          rgba(6,10,26,.94)  100%
+        ),
+        url('hero.jpg') center 18% / cover no-repeat;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -95,7 +103,7 @@
       content: '';
       position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at 25% 65%, rgba(184,150,90,.18) 0%, transparent 55%);
+      background: radial-gradient(ellipse at 30% 38%, rgba(184,150,90,.12) 0%, transparent 50%);
       pointer-events: none;
     }
     .hero-eyebrow {
